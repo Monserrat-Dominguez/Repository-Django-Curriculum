@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ perfil.nombre }} - Currículum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body>
+    <div class="p-8">
+    <div class="flex justify-center">
+      <div class="items-center text-center">
+        <h1 class="mt-4 text-2xl font-semibold text-[#223B74] ">
+          {{ perfil.nombre }}
+        </h1>
+        <h2 class="text-lg font-semibold text-[#223B74]">
+          {{ perfil.ubicacion }}
+        </h2>
+       
+      </div>
+    </div>
+    
+    <div class="grid grid-cols-12  p-2 gap-2">
+      <!-- CONTACTO + HABILIDADES  -->
+      <div class="col-span-3 py-2 space-y-4">
+        <!-- Contacto -->
+        <div>
+          <h2 class="text-xl font-bold text-center text-white bg-[#223B74] py-1 rounded-t">CONTACTO</h2>
+          <p class="py-1 text-sm text-gray-700"><strong>Email:</strong> {{ perfil.email }}</p>
+          <p class="py-1 text-sm text-gray-700"><strong>Teléfono:</strong> {{ perfil.telefono }}</p>
+          <p class="py-1 text-sm text-gray-700"><strong>Ubicación:</strong> {{ perfil.ubicacion }}</p>
+        </div>
+
+<!--IDIOMAS-->
+      <div>
+        <h2
+          class="text-xl font-bold text-center text-white bg-[#223B74] py-1 rounded-t"
+        >
+          IDIOMAS
+        </h2>
+        <ul class="py-1 text-sm text-gray-700 list-disc list-inside pl-2">
+          <li>Español</li>
+          <li>Ingles</li>
+        </ul>
+      </div>
+      </div>
+    
+<!--COLUMNA 2-->   
+<!-- FOTO  -->
+
+
+      {% if perfil.imagen %}
+      <div class="col-span-2 py-8 flex items-start justify-center">
+        <img src="{{ perfil.imagen.url }}" alt="Imagen actual" class="w-50 h-50 rounded-lg shadow-xs object-cover" />
+      </div>
+      {% endif %}
+    
+
+     <!--COLUMNA 3 --> 
+      <!-- RESUMEN -->
+      <div class="col-span-7">
+        <div class=" mt-2 border-l-4 border-[#223B74] pl-2 ">
+        <p class="text-justify text-gray-800 text-lg leading-loose">
+          {{ perfil.resumen }}
+        </p>
+        
+    
+  
+      </div>
+      
+    </div>
+
+    </div>
+    <div class="grid grid-cols-12 gap-4">
+      <div class="col-span-3 ">
+
+       <!-- HABILIDADES TECNICAS-->
+
+          <div>
+            <h2 class="text-xl font-bold text-center text-white bg-[#223B74] py-1 rounded-t">HABILIDADES TECNICAS</h2>
+            <ul class=" text-sm text-gray-800 list-disc list-inside pl-2">
+              <li class="py-1">HTML5 , CSS3 y JavaScript</li>
+              <li class="py-1" >React ,Next.js , Tailwind CSS</li>
+              <li class="py-1">Git / GitHub</li>
+              <li class="py-1">Figma</li>
+              <li class="py-1">SQL</li>
+              <li class="py-1">Scrum</li>
+              <li class="py-1">Python y Django</li>
+              <li class="py-1">PowerBI</li>
+            </ul>
+          </div>
+<!--HABILIDADES BLANDAS-->
+            <div>
+              <h2
+                class="text-xl font-bold text-center text-white bg-[#223B74] py-1 rounded-t"
+              >
+              HABILIDADES BLANDAS
+              </h2>
+              <ul class=" text-sm text-gray-700 list-disc list-inside pl-2">
+                <li class="py-1">Creatividad</li>
+                <li class="py-1">Comunicación efectiva</li>
+                <li class="py-1">Trabajo en equipo</li>
+                <li class="py-1">Empatía</li>
+                <li class="py-1">Curiosidad y aprendizaje continuo</li>
+              </ul>
+            </div>
+
+ <!--INTERESES-->
+
+        <div>
+          <h2
+            class="text-xl font-bold text-center text-white bg-[#223B74] py-1 rounded-t"
+          >
+            INTERESES
+          </h2>
+          <p class=" leading-loose text-sm text-gray-700 list-disc list-inside  text-justify">
+            Me interesa el desarrollo web y aprender constantemente nuevas herramientas relacionadas con la programación.
+            Disfruto mantenerme activa mediante el ejercicio y actividades al aire libre. También me gusta leer novelas de misterio, escuchar música y cocinar.
+          </p>
+        </div>
+        <h2
+        class="text-xl font-bold text-center text-white bg-[#223B74] py-1 rounded-t "
+      >
+        PORTAFOLIO
+      </h2>
+
+        <a href="#"  > <botton class="grid justify-center rounded-3xl bg-[#cbd7f4] m-1 text-xs ">Click for GitHub Django</button></a>
+          <a href="#" class="grid justify-center m-1 text-xs" >AguaMiel</a>
+          <a href="#" class="grid justify-center m-1 text-xs" >------</a>
+
+          <a href="#"  > <botton class="grid justify-center rounded-3xl bg-[#cbd7f4] m-1 text-xs">Click for GitHub JavaScript</button></a>
+            <a href="#" class="grid justify-center m-1 text-xs" >AguaMiel</a>
+            <a href="#" class="grid justify-center m-1 text-xs" >------</a>
+
+          <a href="#"  > <botton class="grid justify-center rounded-3xl bg-[#cbd7f4] m-1 text-xs">Click for GitHub React and Next.js</button></a>
+            <a href="#" class="grid justify-center m-1 text-xs" >AguaMiel</a>
+            <a href="#" class="grid justify-center m-1 text-xs" >------</a>
+
+
+      </div>
+
+      <!--OTHER SECTION-->
+      <div class="col-span-9">
+        <h2 class="mt-2 text-2xl font-semibold text-[#223B74]">
+          HISTORIAL EDUCATIVO
+        </h2>
+        {%for item in historial%}
+        <div class="mt-4 border-l-4 border-[#223B74] pl-4">
+          <div class="text-lg text-gray-800 list-disc list-inside pl-2 text-justify">
+          <h3 class="uppercase font-medium">{{ item.titulo }}</h3>
+          <h4 class="uppercase font-medium">{{item.institucion}}-{{item.ubicacion}}</h4>
+          <p class="text-gray-700 font-medium">{{ item.inicio }}-{{item.fin}}</p>
+          <p>{{item.descripcion}}</p>
+          </div>
+        </div>
+        {%endfor%}
+        
+        
+     
+
+ <!-- Sección de experiencia -->
+
+ <h2 class="mt-2 text-2xl font-semibold text-[#223B74]">
+  EXPERIENCIA LABORAL
+        </h2>
+        {%for experiencia in perfil.experiencia.all%}
+        <div class="mt-4 border-l-4 border-[#223B74] pl-4">
+          <div class="text-lg text-gray-800 list-disc list-inside pl-2 text-justify">
+          <h3 class="uppercase font-medium">{{experiencia.puesto}}-{{experiencia.empresa}}</h3>
+          <p class="text-gray-700 font-medium">{{ experiencia.inicio }}-{{experiencia.fin}}</p>
+          <p>{{experiencia.description}}</p>
+          </div>
+        </div>
+        {%endfor%}
+           
+        
+<!-- FORMACION COMPLEMENTARIA -->
+
+ <h2 class="mt-2 text-2xl font-semibold text-[#223B74]">
+  FORMACION COMPLEMENTARIA</h2>
+        {%for formacion in perfil.formacion.all%}
+        <div class="mt-4 border-l-4 border-[#223B74] pl-4">
+          <div class="text-lg text-gray-800 list-disc list-inside pl-2 text-justify">
+          <p class=" font-medium">{{formacion.curso}}</p>
+          <a class="text-gray-400 font-medium" href="{{ formacion.enlace }}">ver constancia</a>
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+    </div>
+      </div>
+      
+    </div>
+    
+
+   
+   
+  </body>
+</html>
