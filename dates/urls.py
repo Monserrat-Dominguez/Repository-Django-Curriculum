@@ -1,7 +1,7 @@
 
 from django.urls import path
-from .views import PerfilDetailView
+from dates.views import PerfilDetailView
 
 urlpatterns = [
-    path('perfil/<int:pk>/', PerfilDetailView.as_view(), name='perfil-detail'),
+    path('', PerfilDetailView.as_view(), kwargs={'pk': 1}, name='index'),
 ]

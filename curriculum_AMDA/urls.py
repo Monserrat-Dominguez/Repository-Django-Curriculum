@@ -20,9 +20,11 @@ from django.urls import path, include
 from django.shortcuts import redirect
 from django.conf.urls.static import static
 
+from dates import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', lambda request: redirect('perfil'), name='home'),  # redirige a la vista llamada 'perfil'
+    path('perfil/', views.Perfil, name='perfil'),
     path('', include('dates.urls')),  # conecta las URLs de la app 'cv'
 ] 
 if settings.DEBUG:

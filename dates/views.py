@@ -5,7 +5,7 @@ from .models import FormacionComplementaria, Historial, Perfil,experiencia
 
 class PerfilDetailView(DetailView):
     model = Perfil
-    template_name = 'dates/perfil_dates.html'
+    template_name = 'dates/index.html'
     context_object_name = 'perfil'
 
     def get_context_data(self, **kwargs):
