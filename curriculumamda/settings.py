@@ -9,6 +9,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'curriculumamda',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -16,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dates',
     'tailwind',
+    'theme',
 ]
 
 MIDDLEWARE = [
@@ -29,7 +31,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'curriculum_AMDA.urls'
+ROOT_URLCONF = 'curriculumamda.urls'
 
 TEMPLATES = [
     {
@@ -46,7 +48,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'curriculum_AMDA.wsgi.application'
+WSGI_APPLICATION = 'curriculumamda.wsgi.application'
 
 DATABASES = {
     'default': {
