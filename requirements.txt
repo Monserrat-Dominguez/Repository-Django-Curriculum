@@ -1,1 +1,10 @@
 Django==5.2.3
+asgiref==3.8.1
+django-tailwind==4.0.1
+pillow==11.3.0
+sqlparse==0.5.3
+tzdata==2025.2
+gunicorn
+psycopg2-binary
+dj-database-url
+whitenoise
