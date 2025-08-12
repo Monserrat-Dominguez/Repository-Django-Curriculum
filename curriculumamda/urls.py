@@ -20,13 +20,13 @@ from django.urls import path, include
 from django.shortcuts import redirect
 from django.conf.urls.static import static
 
-from dates import views
+from dates.views import PerfilDetailView  
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('perfil/', views.Perfil, name='perfil'),
-    path('', include('dates.urls')),  # conecta las URLs de la app 'cv'
-] 
+    path('perfil/', PerfilDetailView.as_view(), name='perfil'),  
+    path('', include('dates.urls')),  
+]
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
