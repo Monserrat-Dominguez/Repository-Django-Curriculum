@@ -24,8 +24,8 @@ from dates.views import PerfilDetailView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('perfil/', PerfilDetailView.as_view(), name='perfil'),  
-    path('', include('dates.urls')),  
+    path('perfil/', PerfilDetailView.as_view(), name='perfil'),
+    path('', lambda request: redirect('perfil')),  
 ]
 
 if settings.DEBUG:
