@@ -8,6 +8,12 @@ class PerfilDetailView(DetailView):
     template_name = 'dates/index.html'
     context_object_name = 'perfil'
 
+    def get_object(self, queryset=None):
+        perfil = Perfil.objects.first()
+        if not perfil:
+            raise Http404("No se encontró ningún perfil.")
+        return perfil
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['historial'] = Historial.objects.all()
