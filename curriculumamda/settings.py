@@ -14,10 +14,10 @@ except ImportError:
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-bko1lys1h)mnj!y_3fftv!0!pg02d@f4$h-durl#y=7$72s1l1')
 
 # DEBUG por entorno, por defecto False
-DEBUG = True 
+DEBUG = False
 
 # Hosts permitidos: desde variable o lista fija
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', ' ').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
