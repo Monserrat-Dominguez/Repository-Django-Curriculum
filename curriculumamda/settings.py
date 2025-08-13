@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,11 +14,9 @@ except ImportError:
 # Usar la clave desde variable de entorno si existe, si no, la fija
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-bko1lys1h)mnj!y_3fftv!0!pg02d@f4$h-durl#y=7$72s1l1')
 
-# DEBUG por entorno, por defecto False
 DEBUG = False
 
-# Hosts permitidos: desde variable o lista fija
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', ' ').split(',')
+ALLOWED_HOSTS = ['repository-django-curriculum.onrender.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -63,10 +62,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'curriculumamda.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default='sqlite:///db.sqlite3', conn_max_age=600)
 }
 
 AUTH_PASSWORD_VALIDATORS = [
