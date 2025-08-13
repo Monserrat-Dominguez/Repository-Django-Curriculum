@@ -14,8 +14,7 @@ except ImportError:
 # Usar la clave desde variable de entorno si existe, si no, la fija
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-bko1lys1h)mnj!y_3fftv!0!pg02d@f4$h-durl#y=7$72s1l1')
 
-DEBUG = False
-
+DEBUG = os.getenv('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = ['repository-django-curriculum.onrender.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
