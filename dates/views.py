@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import Http404
 
 from django.views.generic import DetailView
 from .models import FormacionComplementaria, Historial, Perfil,experiencia
