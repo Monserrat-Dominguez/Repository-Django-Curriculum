@@ -15,6 +15,17 @@ def main():
             "available on your PYTHONPATH environment variable? Did you "
             "forget to activate a virtual environment?"
         ) from exc
+        
+    if len(sys.argv) > 1 and sys.argv[1] == 'loaddatos':
+        import django
+        django.setup()
+        try:
+            from .load_data import run  
+        except ImportError:
+            from load_data import run 
+        run()
+        sys.exit()
+
     execute_from_command_line(sys.argv)
 
 
