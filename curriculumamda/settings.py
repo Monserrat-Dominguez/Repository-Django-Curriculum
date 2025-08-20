@@ -1,20 +1,14 @@
 import os
 import dj_database_url
+from decouple import config
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Intentar cargar dotenv solo en local
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-except ImportError:
-    pass
 
-# Usar la clave desde variable de entorno si existe, si no, la fija
-SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-bko1lys1h)mnj!y_3fftv!0!pg02d@f4$h-durl#y=7$72s1l1')
+SECRET_KEY = config('SECRET_KEY')
 
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG =  True
 ALLOWED_HOSTS = ['repository-django-curriculum.onrender.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
@@ -80,9 +74,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 TAILWIND_APP_NAME = 'theme'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

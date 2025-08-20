@@ -6,7 +6,7 @@ class Perfil(models.Model):
     telefono = models.CharField(max_length=20, default='+52 000-000-0000')
     ubicacion = models.CharField(max_length=100)
     resumen = models.TextField(max_length=800)
-    imagen = models.ImageField(upload_to='perfiles/', blank=True, null=True)
+    imagen = models.ImageField(upload_to='perfiles', blank=True, null=True)
 
     def __str__(self): return self.nombre
 
