@@ -8,7 +8,7 @@ from django.shortcuts import redirect
 from dates.views import PerfilDetailView
 
 urlpatterns = [
-       path('', lambda request: redirect('home', pk=1)),
+       path('', lambda request: redirect('home')),
        path('<int:pk>/', PerfilDetailView.as_view(), name='home'), 
        path('admin/', admin.site.urls),
 ]
